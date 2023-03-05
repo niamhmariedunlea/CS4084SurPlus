@@ -40,31 +40,33 @@
         app:srcCompat="@drawable/bag" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/SigninBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="74dp"
+        android:onClick="onClickSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/signin" />
+        app:srcCompat="@drawable/signin"
+        android:contentDescription="Sign in button here" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/supplier_signup" />
-
-    <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/ConsumerSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/SigninBtn"
+        app:layout_constraintTop_toBottomOf="@+id/SigninBtn"
         app:srcCompat="@drawable/consumer_signup" />
+
+    <ImageView
+        android:id="@+id/SupplierSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        app:layout_constraintStart_toStartOf="@+id/ConsumerSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/ConsumerSignUp"
+        app:srcCompat="@drawable/supplier_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
