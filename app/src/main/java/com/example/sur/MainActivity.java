@@ -3,6 +3,7 @@ package com.example.sur;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,5 +98,22 @@ public class MainActivity extends AppCompatActivity {
         Intent intentFavourites = new Intent(this, favourite_suppliers.class);
         startActivity(intentFavourites);
     }
-}
+
+
+    private boolean isPressed = false;
+    ImageButton lidlDanishBtn;
+        public void onClicklidlbutton(){
+
+            if(isPressed==false){
+
+                lidlDanishBtn.setBackgroundResource(R.drawable.lidl_danish);
+                isPressed=true;
+
+            }else if(isPressed==true){
+
+                lidlDanishBtn.setBackgroundResource(R.drawable.lidldanish_add);
+                isPressed=false;
+            }
+        }
+    }
 
