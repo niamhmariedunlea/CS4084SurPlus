@@ -37,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
+        android:inputType="textEmailAddress"
         android:id="@+id/editText3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -54,6 +55,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
+        android:inputType="textPassword"
         android:id="@+id/editText2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150px"
             android:drawableLeft="@drawable/baseline_my_location_24"
-            android:text="Use my Current Location" />
+            android:text="Use my Current Location"
+            android:onClick="showCurrentLocation"/>
 
 
     </FrameLayout>

@@ -1,18 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cream"
     tools:context=".ConsumerHomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Consumer Home"
-        android:textSize="30sp"
-        android:textColor="@color/evergreen"/>
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/search_box"
+            android:elevation="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:drawableLeft="@drawable/baseline_search_24"
+            android:padding="10dp"
+            android:hint="Search your Item here..."
+            android:drawablePadding="5dp"
+            android:background="@color/evergreen"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
+
+        <LinearLayout
+            android:layout_marginTop="60px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Popular Places"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/rose"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/view_all_places"
+                android:layout_weight="1"
+                android:text="View All"
+                android:gravity="end"
+                android:layout_marginRight="7dp"
+                android:textSize="16sp"
+                android:textColor="@color/rose"
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/rec_places"/>
+
+        <!--Paste Starts Here -->
+
+        <LinearLayout
+            android:layout_marginTop="60px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Food Offers"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/rose"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/view_offers"
+                android:layout_weight="1"
+                android:text="View All"
+                android:gravity="end"
+                android:layout_marginRight="7dp"
+                android:textSize="16sp"
+                android:textColor="@color/rose"
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/rec_offers"/>
 
 
-</FrameLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

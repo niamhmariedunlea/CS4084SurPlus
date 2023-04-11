@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cream"
     tools:context=".ConsumerBagFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Consumer Home"
-        android:textSize="30sp"
-        android:textColor="@color/evergreen"/>
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Food Deals"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/rose"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/rec_food_deals"/>
+    </LinearLayout>
+
+</ScrollView>
