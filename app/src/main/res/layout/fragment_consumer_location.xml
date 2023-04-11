@@ -14,25 +14,26 @@
         android:layout_height="match_parent"
         tools:context=".ConsumerLocationFragment">
 
-        <SearchView
-            android:id="@+id/searchloc"
+        <EditText
+            android:id="@+id/search_box"
+            android:elevation="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:queryHint="Choose a Location"
+            android:layout_margin="8dp"
+            android:drawableLeft="@drawable/baseline_search_24"
+            android:padding="10dp"
+            android:hint="Search your Item here..."
+            android:drawablePadding="5dp"
             android:background="@color/evergreen"
-            android:searchIcon="@drawable/baseline_search_24"
-            android:closeIcon="@drawable/baseline_close_24"
-            android:iconifiedByDefault="false"
-            android:focusable="false"
-            />
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <Button
             android:id="@+id/currentlocbtn"
             android:background="@drawable/btn_bg_design"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150px"
+            android:layout_marginTop="170px"
             android:drawableLeft="@drawable/baseline_my_location_24"
             android:text="Use my Current Location"
             android:onClick="showCurrentLocation"/>
