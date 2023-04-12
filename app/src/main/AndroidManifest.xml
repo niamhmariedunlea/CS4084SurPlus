@@ -19,6 +19,23 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
         <activity
+            android:name=".favourite_suppliers"
+            android:exported="false" />
+        <activity
+            android:name=".your_favourites"
+            android:exported="false"
+            android:label="@string/title_activity_your_favourites"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".lockeburger_page"
+            android:exported="false" />
+        <activity
+            android:name=".wagamama_page"
+            android:exported="false" />
+        <activity
+            android:name=".lidl_page"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

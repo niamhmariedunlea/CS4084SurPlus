@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,117 +7,85 @@
     android:background="@color/cream"
     tools:context=".ConsumerHomeFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/surlogo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="280dp"
-            android:layout_height="105dp"
-            android:layout_marginStart="66dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="66dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sur_logo" />
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="76dp"
+        android:src="@drawable/surlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/search_box"
-            android:elevation="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:drawableLeft="@drawable/baseline_search_24"
-            android:padding="10dp"
-            android:hint="Search your Item here..."
-            android:drawablePadding="5dp"
-            android:background="@color/evergreen"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"/>
 
-        <LinearLayout
-            android:layout_marginTop="60px"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Popular Places"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/rose"/>
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="148dp"
+        android:hint="Hi!"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/view_all_places"
-                android:layout_weight="1"
-                android:text="View All"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:textSize="16sp"
-                android:textColor="@color/rose"
-                />
+    <ImageView
+        android:id="@+id/lidl_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:onClick="onImageViewLidl"
+        android:src="@drawable/lidl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toEndOf="@+id/wagamama_logo"
+        app:layout_constraintTop_toTopOf="@+id/surlogo"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/lockeburger_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="84dp"
+        android:onClick="onImageViewLockeBurger"
+        android:src="@drawable/lockeburger"
+        app:layout_constraintEnd_toEndOf="@id/textViewName"
+        app:layout_constraintTop_toTopOf="@id/surlogo"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:id="@+id/rec_places"/>
+    <ImageView
+        android:id="@+id/wagamama_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="248dp"
+        android:onClick="onImageViewWagamama"
+        android:src="@drawable/wagamama"
+        app:layout_constraintStart_toEndOf="@+id/lockeburger_logo"
+        app:layout_constraintTop_toTopOf="@id/surlogo"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <!--Paste Starts Here -->
-
-        <LinearLayout
-            android:layout_marginTop="60px"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Food Offers"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/rose"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/view_offers"
-                android:layout_weight="1"
-                android:text="View All"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:textSize="16sp"
-                android:textColor="@color/rose"
-                />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:id="@+id/rec_offers"/>
+    <ImageView
+        android:id="@+id/yourfavs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="72dp"
+        android:minHeight="48dp"
+        android:onClick="onFavouriteSuppliersButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surlogo"
+        app:srcCompat="@drawable/yourfav"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 
-    </LinearLayout>
 
 
-</ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
