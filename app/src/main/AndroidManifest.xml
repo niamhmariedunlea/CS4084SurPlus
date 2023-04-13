@@ -15,9 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SurplusV2"
         tools:targetApi="31">
+        <activity
+            android:name=".SupplierMainActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDTlO_Pvc4qQavX7lHYnqDLRAnTUmcygrw" />
+
         <activity
             android:name=".favourite_suppliers"
             android:exported="false" />

@@ -47,7 +47,7 @@ public class SupplierRegistrationActivity extends AppCompatActivity {
 
         if(mAuth.getCurrentUser() != null)
         {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), SupplierMainActivity.class));
             finish();
         }
 
@@ -104,7 +104,7 @@ public class SupplierRegistrationActivity extends AppCompatActivity {
     }
 
     private void sendUserToHome() {
-        Intent intent= new Intent(SupplierRegistrationActivity.this, MainActivity.class);
+        Intent intent= new Intent(SupplierRegistrationActivity.this, SupplierMainActivity.class);
        // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -115,7 +115,7 @@ public class SupplierRegistrationActivity extends AppCompatActivity {
 
     }
 
-    public void mainActivity(View view){
-        startActivity(new Intent(SupplierRegistrationActivity.this, MainActivity.class));
+    public void supplierMainActivity(View view){
+        startActivity(new Intent(SupplierRegistrationActivity.this, SupplierMainActivity.class));
     }
 }
