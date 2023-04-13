@@ -86,6 +86,7 @@
         android:textAllCaps="false"
         android:layout_marginTop="600dp"
         android:layout_marginLeft="130dp"
+        android:onClick="updateProfile"
         android:text="Save"
         />
 
