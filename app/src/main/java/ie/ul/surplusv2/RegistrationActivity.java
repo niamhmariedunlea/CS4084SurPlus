@@ -44,6 +44,13 @@ public class RegistrationActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
 
+
+        {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +66,7 @@ public class RegistrationActivity extends AppCompatActivity {
         String password = inputPassword.getText().toString();
         String confirmPassword = inputConfirmPassword.getText().toString();
 
-        if (!email.matches(emailPattern))
+        if (!email.matches(emailPattern) || email.isEmpty())
         {
             inputEmail.setError("Please Enter a Valid Email!");
         } else if (password.isEmpty() || password.length() < 6)
@@ -86,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     } else
                     {
                         progressDialog.dismiss();
-                        Toast.makeText(RegistrationActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistrationActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });

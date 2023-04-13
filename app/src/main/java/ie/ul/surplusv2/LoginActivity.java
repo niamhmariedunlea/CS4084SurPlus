@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         String email=inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
 
-        if (!email.matches(emailPattern))
+        if (!email.matches(emailPattern) || email.isEmpty())
         {
             inputEmail.setError("Please Enter a Valid Email!");
         } else if (password.isEmpty() || password.length() < 6)
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else
                     {
                         progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                 }

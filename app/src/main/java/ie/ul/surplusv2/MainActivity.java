@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
         // Start the activity for the page you want to navigate to
         Intent intentFavourites = new Intent(this, favourite_suppliers.class);
         startActivity(intentFavourites);
+    }
+
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
+        finish();
     }
 
 }
