@@ -109,7 +109,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonReg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -140,15 +140,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="39dp"
+        android:layout_height="14dp"
         android:layout_marginTop="36dp"
+        android:onClick="login"
         android:text="Sign in"
         android:textColor="#FF5D6E"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:onClick="login"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
