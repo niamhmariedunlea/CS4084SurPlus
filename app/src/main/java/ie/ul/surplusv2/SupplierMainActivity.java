@@ -53,29 +53,6 @@ public class SupplierMainActivity extends AppCompatActivity {
             }
         });
     }
-    public void onImageViewLockeBurger(View view) {
-        // Start the activity for the page you want to navigate to
-        Intent intentLocke = new Intent(this, lockeburger_page.class);
-        startActivity(intentLocke);
-    }
-
-    public void onImageViewWagamama(View view) {
-        // Start the activity for the page you want to navigate to
-        Intent intentWagamama = new Intent(this, wagamama_page.class);
-        startActivity(intentWagamama);
-    }
-
-    public void onImageViewLidl(View view) {
-        // Start the activity for the page you want to navigate to
-        Intent intentLidl = new Intent(this, lidl_page.class);
-        startActivity(intentLidl);
-    }
-
-    public void onFavouriteSuppliersButton(View view) {
-        // Start the activity for the page you want to navigate to
-        Intent intentFavourites = new Intent(this, favourite_suppliers.class);
-        startActivity(intentFavourites);
-    }
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
