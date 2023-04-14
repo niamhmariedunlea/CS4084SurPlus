@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful())
                     {
                         progressDialog.dismiss();
-                        sendUserToHome();
+                        sendUserToHome(email);
                         Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                     } else
                     {
@@ -88,10 +88,20 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void sendUserToHome() {
-        Intent intent= new Intent(LoginActivity.this, MainActivity.class);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+    private void sendUserToHome(String email) {
+        if (email.matches("^[\\w.+\\-]+@gmail\\.com$") || email.matches("^[\\w.+\\-]+@surplus\\.com$"))
+        {
+            Intent intent= new Intent(LoginActivity.this, MainActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        else {
+            Intent intent= new Intent(LoginActivity.this, SupplierMainActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
+        }
+
     }
 
 
