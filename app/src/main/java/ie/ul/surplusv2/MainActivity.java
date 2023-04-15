@@ -3,6 +3,7 @@ package ie.ul.surplusv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -84,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
         finish();
+    }
+
+    public void goBack() {
+        onBackPressed();
     }
 
 
