@@ -45,6 +45,7 @@ public class ConsumerHomeFragment extends Fragment implements OnMapReadyCallback
     View hView;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
