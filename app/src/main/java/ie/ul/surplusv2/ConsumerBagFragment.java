@@ -23,9 +23,6 @@ import kotlinx.coroutines.ObsoleteCoroutinesApi;
 
 public class ConsumerBagFragment extends Fragment {
 
-    CoordinatorLayout coordinatorLayout;
-    boolean isPressed = false;
-
     public ConsumerBagFragment() {}
 
     @Override
@@ -36,30 +33,6 @@ public class ConsumerBagFragment extends Fragment {
 
 
     }
-
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d("ConsumerBagFragment", "onActivityCreated called");
-        coordinatorLayout = getActivity().findViewById(R.id.scrollView2);
-        ImageButton cart1element = getActivity().findViewById(R.id.cart1);
-
-        cart1element.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickElement1(cart1element);
-            }
-        });
-    }
-
-            private void clickElement1(ImageButton cart1element) {
-                Log.d("ConsumerBagFragment", "clickElement1 called");
-        cart1element.setEnabled(false);
-                // Toast.makeText(th "Now Reserved - please collect ASAP", Toast.LENGTH_SHORT).show();
-
-                Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "Now Reserved - please collect ASAP", Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }
-        }
+}
 
 
