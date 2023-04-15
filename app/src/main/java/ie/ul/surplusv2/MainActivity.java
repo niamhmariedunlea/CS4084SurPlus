@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+
     BottomNavigationView navigationView;
 
     @Override
@@ -83,5 +84,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
         finish();
     }
+
+
 
 }
