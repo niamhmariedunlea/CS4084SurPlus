@@ -102,6 +102,22 @@
         app:srcCompat="@drawable/yourfav"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_consumer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="0dp"
+        android:background="@color/evergreen"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/consumer_bottom_navigation" />
+
+
 
 
 

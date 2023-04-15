@@ -14,8 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import kotlinx.coroutines.ObsoleteCoroutinesApi;
 
-public class ConsumerBagFragment extends Fragment  {
+
+public class ConsumerBagFragment extends Fragment {
     public AppCompatActivity cartClass;
     private Context ConsumerBagFragment;
 
@@ -36,14 +38,19 @@ public class ConsumerBagFragment extends Fragment  {
 
         ImageButton cart1element = getActivity().findViewById(R.id.cart1);
 
-        cart1element.setOnClickListener(view -> clickElement1(cart1element));
-        }
+        cart1element.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickElement1(cart1element);
+            }
 
-
-        private void clickElement1(ImageButton cart1element){
-            cart1element.setEnabled(false);
+            private void clickElement1(ImageButton cart1element) {
+                cart1element.setEnabled(false);
                 Toast.makeText(ConsumerBagFragment, "Now Reserved - please collect ASAP", Toast.LENGTH_SHORT).show();
             }
-        }
+        });
+
+    }
+}
 
 
