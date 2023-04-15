@@ -36,24 +36,11 @@
 
 
     <TextView
-        android:id="@+id/lidltext"
-        android:layout_width="71dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="425dp"
-        android:text="Lidl"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers" />
-
-    <TextView
         android:id="@+id/wagamamatext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:text="Wagamama"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -61,11 +48,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/wagamamatext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="Lidl"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/LidlimageButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/locketext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:text="Locke Burger"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -77,11 +76,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="400dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/waga1" />
-
 
 
     <ImageView
@@ -89,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="138dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/waga1"
         app:srcCompat="@drawable/locke1" />
@@ -100,14 +98,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
         android:background="#FFF6EB"
-        android:onClick="onClicklidlbutton"
-        android:src="@drawable/lidl_button_selector"
+        app:layout_constraintBottom_toTopOf="@+id/wagamamatext"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
-        app:srcCompat="@drawable/lidl_danish"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:srcCompat="@drawable/lidl_danish_button"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onClickLidlDanish"
+
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_consumer"
@@ -121,4 +120,41 @@
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/consumer_bottom_navigation" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/LidlimageButton"
+        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
+        app:srcCompat="@drawable/lidl_sourdough" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locke1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/locke_chicken" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/waga1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/waga_springrolls" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

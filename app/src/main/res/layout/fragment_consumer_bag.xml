@@ -22,7 +22,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sur_logo" />
+            app:srcCompat="@drawable/surlogo" />
+
 
         <TextView
             android:layout_marginTop="20px"
@@ -34,6 +35,13 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/rose"/>
+
+        <ImageButton
+            android:id="@+id/cart1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/cream"
+            android:onClick="onCart1Click" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10px"
