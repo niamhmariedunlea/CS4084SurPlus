@@ -7,6 +7,48 @@
     android:background="@color/cream"
     tools:context=".wagamama_page">
 
+    <EditText
+        android:id="@+id/FavouriteSuppliers"
+        android:layout_width="268dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="124dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Food Deals"
+        android:textColor="@color/rose"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:scaleType="fitCenter"
+        android:id="@+id/imageButton6"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
+        android:src="@drawable/waga1"
+        android:background="@color/cream"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/cream"
+        android:scaleType="fitCenter"
+        android:src="@drawable/waga_springrolls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
     <ImageView
         android:id="@+id/surlogo"
         android:layout_width="wrap_content"
