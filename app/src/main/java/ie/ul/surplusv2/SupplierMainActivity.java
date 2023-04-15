@@ -39,10 +39,6 @@ public class SupplierMainActivity extends AppCompatActivity {
                         fragment = new SupplierCreateFragment();
                         break;
 
-                    case R.id.supplierStore:
-                        fragment = new SupplierStoreFragment();
-                        break;
-
                     case R.id.supplierProfile:
                         fragment = new SupplierProfileFragment();
                         break;
