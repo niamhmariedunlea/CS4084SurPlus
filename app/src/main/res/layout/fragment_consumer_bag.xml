@@ -40,8 +40,7 @@
             android:id="@+id/cart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/cream"
-            android:onClick="onCart1Click" />
+            android:background="@color/cream" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10px"

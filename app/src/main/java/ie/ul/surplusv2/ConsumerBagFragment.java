@@ -3,6 +3,7 @@ package ie.ul.surplusv2;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,12 +13,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 
 public class ConsumerBagFragment extends Fragment  {
     public AppCompatActivity cartClass;
+    private Context ConsumerBagFragment;
+
     boolean isPressed = false;
 
     @Override
@@ -25,28 +26,24 @@ public class ConsumerBagFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_consumer_bag, container, false);
+
+
     }
 
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-    public void onCart1Click(View view) {
-            isPressed = true;
-            final ImageButton cart1Element = (ImageButton) cartClass.findViewById(R.id.cart1);
-            cart1Element.setOnClickListener(new View.OnClickListener() {
-                private Context ConsumerBagFragment;
 
-                @Override
-                public void onClick(View view) {
+        ImageButton cart1element = getActivity().findViewById(R.id.cart1);
 
-                    cart1Element.setSelected(!cart1Element.isPressed());
+        cart1element.setOnClickListener(view -> clickElement1(cart1element));
+        }
 
-                    if ((cart1Element.isPressed() && isPressed) == true) {
-                        Toast.makeText(ConsumerBagFragment, "Now Reserved - please collect ASAP", Toast.LENGTH_SHORT).show();
 
-                    } else {
-                        isPressed = false;
-                    }
-                }
-            });
+        private void clickElement1(ImageButton cart1element){
+            cart1element.setEnabled(false);
+                Toast.makeText(ConsumerBagFragment, "Now Reserved - please collect ASAP", Toast.LENGTH_SHORT).show();
+            }
+        }
 
-    }
-}
+
