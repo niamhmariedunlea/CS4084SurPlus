@@ -18,4 +18,6 @@ public class ConsumerBagFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_consumer_bag, container, false);
     }
+
+
 }
