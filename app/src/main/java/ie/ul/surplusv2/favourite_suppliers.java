@@ -52,25 +52,5 @@ public class favourite_suppliers extends AppCompatActivity {
     }
 
 
-    public void onCart1Click(View view) {
 
-        isPressed = true;
-        final ImageButton cart1Element = (ImageButton) findViewById(R.id.cart1);
-        cart1Element.setOnClickListener(new View.OnClickListener() {
-            private Context ConsumerBagFragment;
-
-            @Override
-            public void onClick(View view) {
-
-              cart1Element.setSelected(!cart1Element.isPressed());
-
-                if ((cart1Element.isPressed() && isPressed) == true) {
-                    Toast.makeText(ConsumerBagFragment, "Now Reserved - please collect ASAP", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    isPressed = false;
-                }
-            }
-        });
-    }
 }
