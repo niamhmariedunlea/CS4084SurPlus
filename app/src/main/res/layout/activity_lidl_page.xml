@@ -26,7 +26,7 @@
         android:layout_marginTop="124dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Food Deals"
+        android:text="Food Deals - Lidl "
         android:textColor="@color/rose"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,5 +75,29 @@
         app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/lidl_doughnut"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/lidl_breadrolls"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

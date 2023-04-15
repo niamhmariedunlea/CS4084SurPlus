@@ -15,7 +15,7 @@
         android:layout_marginTop="124dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Food Deals"
+        android:text="Food Deals - Locke Burger"
         android:textColor="@color/rose"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
