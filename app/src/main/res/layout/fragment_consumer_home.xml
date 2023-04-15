@@ -117,6 +117,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/consumer_bottom_navigation" />
 
+    <com.google.android.gms.maps.MapView
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:id="@+id/mapHome"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_consumer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wagamama_logo" />
+
 
 
 
