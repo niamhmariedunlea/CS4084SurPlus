@@ -12,4 +12,5 @@ public class lidl_page extends AppCompatActivity {
         setContentView(R.layout.activity_lidl_page);
     }
 
+
 }

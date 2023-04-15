@@ -18,53 +18,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/lidl_danish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="360dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lidl_sourdough"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
-        app:layout_constraintVertical_bias="0.444"
-        app:srcCompat="@drawable/lidl_danish" />
-
     <EditText
         android:id="@+id/FavouriteSuppliers"
-        android:layout_width="235dp"
-        android:layout_height="0dp"
+        android:layout_width="268dp"
+        android:layout_height="58dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="124dp"
-        android:layout_marginBottom="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Food Deals"
         android:textColor="@color/rose"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lidl_sourdough"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/lidl_sourdough"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="360dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lidl_danish"
-        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
-        app:srcCompat="@drawable/lidl_sourdough" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_consumer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="0dp"
@@ -73,7 +44,36 @@
         app:itemIconTint="@color/white"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/consumer_bottom_navigation" />
+
+
+    <ImageButton
+        android:scaleType="fitCenter"
+        android:id="@+id/imageButton6"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
+        android:src="@drawable/lidl_danish_button"
+        android:background="@drawable/lidl_danish"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="142dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/lidl_danish"
+        android:scaleType="fitCenter"
+        android:src="@drawable/lidl_sourdough_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FavouriteSuppliers"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
