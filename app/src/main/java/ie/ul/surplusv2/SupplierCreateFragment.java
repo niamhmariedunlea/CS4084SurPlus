@@ -3,12 +3,17 @@ package ie.ul.surplusv2;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +21,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -33,6 +35,9 @@ import java.util.Map;
 
 
 public class SupplierCreateFragment extends Fragment {
+
+    final int CAM_REQ = 101;
+    final int CAM_OPEN_REQ = 102;
 
     ImageView inputImage;
     ImageView addInputImage;
@@ -75,22 +80,68 @@ public class SupplierCreateFragment extends Fragment {
         inputLocation = getActivity().findViewById(R.id.ad_location);
         createAd = getActivity().findViewById(R.id.ad_save);
 
+        addInputImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                askCameraPermission();
+                //takePhoto();
+
+            }
+        });
+
         createAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listOffer();
+                Toast.makeText(getActivity(), "Offer has been listed", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    private void askCameraPermission() {
+        if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(getActivity(), new String[] {android.Manifest.permission.CAMERA}, CAM_REQ);
+        }
+        else
+        {
+            openCamera();
+        }
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == CAM_REQ)
+        {
+            //User allowed camera perms
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                openCamera();
+            }
+            else
+            {
+                Toast.makeText(getActivity(), "Camera Permissions required!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
+    private void openCamera() {
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camera, CAM_OPEN_REQ);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == CAM_OPEN_REQ)
+        {
+            Bitmap image = (Bitmap) data.getExtras().get("data");
+            inputImage.setImageBitmap(image);
+        }
+    }
 
+    private void takePhoto() {
 
-
-
-
+    }
 
 
     private void listOffer() {
@@ -109,8 +160,6 @@ public class SupplierCreateFragment extends Fragment {
         offers.put("prevPrice", prev);
         offers.put("currPrice", curr);
         offers.put("location", loc);
-
-        Log.d(TAG, "Offer Listed!");
 
         documentReference.set(offers).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
