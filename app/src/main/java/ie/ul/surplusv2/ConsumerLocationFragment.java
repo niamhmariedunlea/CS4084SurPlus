@@ -59,23 +59,25 @@ import java.util.Locale;
 
 public class ConsumerLocationFragment extends Fragment implements OnMapReadyCallback {
 
+    // Buttons found in xml to show current location and search for a place
     Button currentLocBtn;
     SearchView searchBar;
 
+    //All components required for the google maps to work
     MapView mMapView;
     GoogleMap mGoogleMap;
+    Marker marker;
+    FusedLocationProviderClient client;
+
     View mView;
 
-    Marker marker;
 
-    FusedLocationProviderClient client;
 
     public ConsumerLocationFragment() {}
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //checkPerm();
     }
 
     @Override
@@ -84,13 +86,14 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_consumer_location, container, false);
 
-
         return mView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //Assign all variables to their required values
 
         mMapView = (MapView) mView.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
@@ -101,6 +104,7 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
         currentLocBtn = getActivity().findViewById(R.id.currentlocbtn);
         searchBar = getActivity().findViewById(R.id.search_box);
 
+        //When I click this button - call method below - will show current user location
         currentLocBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,14 +113,15 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
             }
         });
 
+        // When user clicks enter or clicks the icon - map will show the result
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 Toast.makeText(getActivity(), "Searching...", Toast.LENGTH_SHORT).show();
+                //Method found below
                 searchLocationResult();
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String s) { return false;}
         });
@@ -126,27 +131,15 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
 
     @Override
     public void onMapReady(@NonNull GoogleMap gMap) {
+        //When map is ready have zoom and map type already present
 
         mGoogleMap = gMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
-       // mGoogleMap.setMyLocationEnabled(true);
-
-
-        /*
-
-        mGoogleMap.addMarker(new MarkerOptions().position(latLng));
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53, -8), 7));
-        LatLng latLng = new LatLng(53, -8);
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53, -8), 7));
-         */
-
     }
 
-    private void checkPerm() {
 
-    }
-
+//All the following are required for MapView to work
     @Override
     public void onResume() {
         mMapView.onResume();
@@ -183,14 +176,14 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
         mMapView.onLowMemory();
     }
 
+    //Method for the button - will show location based on device - calls method below
     public void getCurrentLocation() {
+
         client.getLastLocation().addOnCompleteListener(task -> {
             if (task.isSuccessful())
             {
                 Location location = task.getResult();
                 showCurrentLocation(location.getLatitude(), location.getLongitude());
-
-
             }
         });
     }
@@ -204,6 +197,7 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
         marker = mGoogleMap.addMarker(markerOptions);
     }
 
+    //Stores query as 1 whole input - which then finds it lat, long and updates camera
     private void searchLocationResult() {
         String loc = searchBar.getQuery().toString();
         if (loc == null) {

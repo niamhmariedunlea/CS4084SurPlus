@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         String email=inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
 
+        //Some validation Checks
         if (!email.matches(emailPattern) || email.isEmpty())
         {
             inputEmail.setError("Please Enter a Valid Email!");
@@ -67,12 +68,14 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
+            //Here is the actual signin process with Firebase
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful())
                     {
                         progressDialog.dismiss();
+                        //Redirects the person to home page - method below
                         sendUserToHome(email);
                         Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                     } else
@@ -88,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //Depending on their email - whether it's personal or company -  they'll be redirected to Consumer or Supplier Home Page
     private void sendUserToHome(String email) {
         if (email.matches("^[\\w.+\\-]+@gmail\\.com$") || email.matches("^[\\w.+\\-]+@surplus\\.com$"))
         {
@@ -99,7 +103,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent= new Intent(LoginActivity.this, SupplierMainActivity.class);
             //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-
         }
 
     }
@@ -111,9 +114,5 @@ public class LoginActivity extends AppCompatActivity {
 
     public void registerSupplier(View view){
         startActivity(new Intent(LoginActivity.this, SupplierRegistrationActivity.class));
-    }
-
-    public void mainActivity(View view){
-        startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 }

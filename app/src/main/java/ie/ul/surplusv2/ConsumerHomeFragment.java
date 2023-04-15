@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ConsumerHomeFragment extends Fragment {
 
+    //textView on the home page where you'll use account name for personalization
     TextView consumerName;
 
 
@@ -43,8 +44,11 @@ public class ConsumerHomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        //Get currently sign-in user from firebase
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         String currentId = firebaseUser.getUid();
+
+        //Find the document from firestore relating to current user ID
         DocumentReference documentReference;
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -56,12 +60,14 @@ public class ConsumerHomeFragment extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.getResult().exists())
                         {
+                            //Personalize the home page
                             String resultName = task.getResult().getString("fullName");
 
                             consumerName.setText("Hi "+ resultName + "!");
 
                         }else
                         {
+                            //if the user doesn't exist, send them back to registration
                             Intent intent = new Intent(getActivity(), RegistrationActivity.class);
                             startActivity(intent);
                         }

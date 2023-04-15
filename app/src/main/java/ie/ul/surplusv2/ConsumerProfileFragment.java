@@ -29,12 +29,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ConsumerProfileFragment extends Fragment {
 
+    //All edittext inputs will be stored in the firebase
     EditText name;
     EditText email;
     EditText password;
     EditText location;
     Button saveProfile;
 
+    //Required variables for establishing connection to firebase and reading/writing
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     String currentId = firebaseUser.getUid();
     DocumentReference documentReference;
@@ -78,11 +80,13 @@ public class ConsumerProfileFragment extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.getResult().exists())
                         {
+                            //Getting the input values
                             String resultName = task.getResult().getString("fullName");
                             String resultEmail = task.getResult().getString("email");
                             String resultPassword = task.getResult().getString("password");
                             String resultLocation = task.getResult().getString("location");
 
+                            //Assigning the inputs to the necessary variables
                             name.setText(resultName);
                             email.setText(resultEmail);
                             password.setText(resultPassword);
@@ -90,6 +94,7 @@ public class ConsumerProfileFragment extends Fragment {
 
                         }else
                         {
+                            //if the task fails, that means the person isn't in the db thus needs to get registered
                             Intent intent = new Intent(getActivity(), RegistrationActivity.class);
                             startActivity(intent);
                         }
@@ -98,6 +103,8 @@ public class ConsumerProfileFragment extends Fragment {
                 });
     }
     private void updateProfile() {
+
+        //Before I was setting the existing values to the edittext, now if the user updates those fields, they will be updates in the db too
 
         String newName = name.getText().toString();
         String newEmail = email.getText().toString();

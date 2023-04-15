@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getSupportActionBar().hide();
 
         navigationView = findViewById(R.id.bottom_navigation_consumer);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new ConsumerHomeFragment()).commit();
         navigationView.setSelectedItemId(R.id.consumerHome);
 
+        //Setup of the navbar for the consumer side of the app
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentFavourites);
     }
 
+    //Logs the user out of the app back to the welcome page
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
