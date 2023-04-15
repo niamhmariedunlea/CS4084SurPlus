@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -48,21 +50,40 @@ public class favourite_suppliers extends AppCompatActivity {
     private void openCart(ImageButton danishLidl) {
         setContentView(R.layout.fragment_consumer_bag);
         final ImageButton cart1 = (ImageButton) findViewById(R.id.cart1);
-        cart1.setImageResource(R.drawable.lidl_danish);
+        final ImageButton reserve = (ImageButton) findViewById(R.id.reserve);
+        cart1.setImageResource(R.drawable.danish_cart_button);
         
             Log.d("ConsumerBagFragment", "onActivityCreated called");
-            cart1.setOnClickListener(new View.OnClickListener() {
+
+        cart1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickItem();
+            }
+        });
+
+            reserve.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickElement1();
+                    clickReserve();
                 }
             });
         }
-    private void clickElement1() {
+
+
+        private void clickItem(){
+            final ImageButton cart1 = (ImageButton) findViewById(R.id.cart1);
+            Log.d("ConsumerBagFragment", "clickElement1 called");
+            setContentView(R.layout.fragment_consumer_bag);
+            cart1.setEnabled(false);
+            Toast.makeText(this, "Item has been removed from your bag", Toast.LENGTH_SHORT).show();
+
+        }
+    private void clickReserve() {
         final ImageButton cart1 = (ImageButton) findViewById(R.id.cart1);
             Log.d("ConsumerBagFragment", "clickElement1 called");
         setContentView(R.layout.fragment_consumer_bag);
-            cart1.setEnabled(false);
+        cart1.setEnabled(false);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Now Reserved - please collect ASAP");
