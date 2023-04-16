@@ -211,6 +211,7 @@ public class ConsumerLocationFragment extends Fragment implements OnMapReadyCall
                     if (marker != null) {
                         marker.remove();
                     }
+                    //Create a marker for new location
                     MarkerOptions markerOptions = new MarkerOptions().position(latlng).title(loc);
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
                     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latlng, 15);
