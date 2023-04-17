@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.firestore.QuerySnapshot;
+import androidx.fragment.app.FragmentActivity;
 
 import java.util.List;
 
 
 
 public class OfferAdapter extends ArrayAdapter<offers> {
-    public OfferAdapter(OnCompleteListener<QuerySnapshot> context, List<offers> object){
+    public OfferAdapter(FragmentActivity context, List<offers> object){
         super((Context) context,0, object);
     }
 

@@ -52,6 +52,11 @@ public class SupplierHomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         consumerName = getActivity().findViewById(R.id.textViewName);
+
+        mOffersList = new ArrayList<offers>();
+        mOfferListView = getActivity().findViewById(R.id.offerListView);
+        mAdapter = new OfferAdapter( getActivity(), mOffersList);
+        mOfferListView.setAdapter(mAdapter);
     }
 
     public void onStart() {
@@ -86,8 +91,6 @@ public class SupplierHomeFragment extends Fragment {
 
                             System.out.println("CurrentID: " + currentId);
 
-                            mOffersList = new ArrayList<offers>();
-
 
                             myOffers.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
@@ -107,11 +110,11 @@ public class SupplierHomeFragment extends Fragment {
                                         }
                                         System.out.println("HERE");
                                         //ListView mMissionsListView = (ListView) findViewById(R.id.missionList);
-                                        ListView mOfferListView = getActivity().findViewById(R.id.offerListView);
+
                                         System.out.println("HERE aswell");
-                                        mAdapter = new OfferAdapter( this, mOffersList);
+
                                         System.out.println("doesnt go past this point!");
-                                        mOfferListView.setAdapter(mAdapter);
+
                                     } else {
                                         Log.d("OfferActivity", "Error getting documents: ", task.getException());
                                     }
