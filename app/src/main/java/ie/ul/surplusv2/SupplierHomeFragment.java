@@ -110,7 +110,7 @@ public class SupplierHomeFragment extends Fragment {
                                         ListView mOfferListView = getActivity().findViewById(R.id.offerListView);
                                         System.out.println("HERE aswell");
                                         mAdapter = new OfferAdapter( this, mOffersList);
-                                        System.out.println("doesn't MAKE IT PAST ABOVE LINE.");
+                                        System.out.println("doesnt go past this point!");
                                         mOfferListView.setAdapter(mAdapter);
                                     } else {
                                         Log.d("OfferActivity", "Error getting documents: ", task.getException());
