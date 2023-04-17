@@ -146,7 +146,7 @@ public class SupplierCreateFragment extends Fragment {
 
     private void listOffer() {
 
-        documentReference = firebaseFirestore.collection("offers").document(currentId);
+        documentReference = firebaseFirestore.collection("offers").document(currentId).collection("supplierOffers").document();
 
         String company = inputCompany.getText().toString();
         String item = inputTitle.getText().toString();
