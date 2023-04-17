@@ -156,6 +156,7 @@ public class SupplierCreateFragment extends Fragment {
 
         Map<String, Object> offers = new HashMap<>();
         offers.put("company", company);
+        offers.put("docID",documentReference.getId());
         offers.put("item", item);
         offers.put("prevPrice", prev);
         offers.put("currPrice", curr);

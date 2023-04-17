@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,7 +46,10 @@ public class SupplierHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_supplier_home, container, false);
+        //return inflater.inflate(R.layout.fragment_supplier_home, container, false);
+        View contentView = inflater.inflate(R.layout.fragment_supplier_home, container, false);
+        ListView offerListView = contentView.findViewById(R.id.offerListView);
+        return contentView;
     }
 
     @Override
@@ -53,14 +57,6 @@ public class SupplierHomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         consumerName = getActivity().findViewById(R.id.textViewName);
 
-        mOffersList = new ArrayList<offers>();
-        mOfferListView = getActivity().findViewById(R.id.offerListView);
-        mAdapter = new OfferAdapter( getActivity(), mOffersList);
-        mOfferListView.setAdapter(mAdapter);
-    }
-
-    public void onStart() {
-        super.onStart();
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         String currentId = firebaseUser.getUid();
         DocumentReference documentReference;
@@ -68,6 +64,7 @@ public class SupplierHomeFragment extends Fragment {
 
         documentReference = firebaseFirestore.collection("suppliers").document(currentId);
 
+        mOffersList = new ArrayList<offers>();
 
         documentReference.get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -76,7 +73,7 @@ public class SupplierHomeFragment extends Fragment {
                         if (task.getResult().exists()) {
                             String resultName = task.getResult().getString("fullName");
 
-                            consumerName.setText("Hi " + resultName + "!");
+                            consumerName.setText(resultName + "'s Offers");
 
                             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                             String currentId = firebaseUser.getUid();
@@ -107,14 +104,22 @@ public class SupplierHomeFragment extends Fragment {
                                             mOffersList.add(off);
                                             System.out.println("passed 3");
                                             System.out.println("Added Document: " + off.getCurrPrice());
+                                            System.out.println("Added Document: " + off.getItem());
+                                            System.out.println("Added Document: " + off.getPrevPrice());
+                                            System.out.println("Added Document: " + off.getLocation());
                                         }
-                                        System.out.println("HERE");
-                                        //ListView mMissionsListView = (ListView) findViewById(R.id.missionList);
-
+                                        ListView mOfferListView = getActivity().findViewById(R.id.offerListView);
                                         System.out.println("HERE aswell");
-
+                                        mAdapter = new OfferAdapter( getActivity(), mOffersList);
                                         System.out.println("doesnt go past this point!");
-
+                                        mOfferListView.setAdapter(mAdapter);
+                                        mOfferListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                                                mAdapter.deleteItem(position);
+                                            }
+                                                                          });
+                                        System.out.println("question mark");
                                     } else {
                                         Log.d("OfferActivity", "Error getting documents: ", task.getException());
                                     }
@@ -130,6 +135,11 @@ public class SupplierHomeFragment extends Fragment {
                 });
     }
 }
+
+
+//    public void onStart() {
+//        super.onStart();
+//    }
 
 //    private void listOffer() {
 //        super.onStart();

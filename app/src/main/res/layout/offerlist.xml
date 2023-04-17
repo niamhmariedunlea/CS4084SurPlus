@@ -11,35 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
+        android:hint="There will be a title"
         android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/rose"
-        android:hint="There will be a title"/>
-
-    <TextView
-        android:id="@+id/item_prevPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textAppearance="?android:textAppearance"
-        android:textColor="@color/rose"
-        android:hint="There will be prev"/>
-
-    <TextView
-        android:id="@+id/item_currPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textAppearance="?android:textAppearance"
-        android:textColor="@color/rose"
-        android:hint="There will be a curr"/>
+        android:textColor="@color/rose" />
 
     <TextView
         android:id="@+id/item_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:hint="There will be a location"
         android:textAppearance="?android:textAppearance"
-        android:textColor="@color/rose"
-        android:hint="There will be a location"/>
+        android:textColor="@color/rose" />
+
+    <TextView
+        android:id="@+id/item_currPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:hint="There will be a curr"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="@color/rose" />
+
+    <TextView
+        android:id="@+id/item_prevPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:hint="There will be prev"
+        android:textAppearance="?android:textAppearance"
+        android:textColor="@color/rose" />
 
 </LinearLayout>
